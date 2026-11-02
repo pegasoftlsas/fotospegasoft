@@ -36,7 +36,12 @@ class Cliente:
 
     def _peticion(self, metodo, ruta, cuerpo=None):
         datos = None
-        cabeceras = {"x-api-key": self.clave, "Accept": "application/json"}
+        cabeceras = {
+            "x-api-key": self.clave,
+            "Accept": "application/json",
+            # Cloudflare bloquea el User-Agent por defecto de Python (error 1010)
+            "User-Agent": "immich-duplicados/1.0",
+        }
         if cuerpo is not None:
             datos = json.dumps(cuerpo).encode()
             cabeceras["Content-Type"] = "application/json"
