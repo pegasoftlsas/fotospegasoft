@@ -1,0 +1,10 @@
+[Unit]
+Description=Ejecutar la búsqueda de duplicados de Immich cada 8 días
+
+[Timer]
+# Primera ejecución 15 minutos después de arrancar; luego cada 8 días
+OnBootSec=15min
+OnUnitActiveSec=8d
+
+[Install]
+WantedBy=timers.target

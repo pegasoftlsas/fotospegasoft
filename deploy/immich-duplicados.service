@@ -1,0 +1,9 @@
+[Unit]
+Description=Buscar fotos duplicadas en Immich (solo reporte)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/immich-duplicados.env
+ExecStart=/bin/bash /var/lib/immich-scripts/fotospegasoft/deploy/ejecutar.sh
